@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GraphOne Frontend
 
-## Getting Started
+The frontend for GraphOne - the intelligence layer for the AI economy. Built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
 
-First, run the development server:
+## Features
+
+- Pixel-perfect UI for 5 key screens (Companies, Company Detail, Investors, Investor Profile, Products)
+- Responsive design with Tailwind CSS
+- Smooth animations with Framer Motion
+- Reusable component library (Cards, Buttons, Tags)
+- Real-time search and filtering
+- Interactive data visualizations
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Charts**: Recharts
+- **HTTP Client**: Axios
+
+## Setup Instructions
+
+### 1. Install Dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+### 2. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+frontend/
+├── app/                    # Next.js App Router pages
+│   ├── companies/          # Company pages
+│   ├── investors/          # Investor pages
+│   ├── products/           # Products page
+│   ├── layout.tsx          # Root layout
+│   └── page.tsx            # Home page
+├── components/             # Reusable UI components
+│   ├── CompanyCard.tsx
+│   ├── InvestorCard.tsx
+│   ├── ProductCard.tsx
+│   ├── Navbar.tsx
+│   └── Section.tsx
+├── lib/                    # Utilities and data
+│   ├── data.ts            # Mock data
+│   └── utils.ts
+├── types/                  # TypeScript types
+│   └── index.ts
+└── tailwind.config.ts      # Tailwind configuration
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. AI Companies Home (`/`)
+- Hero section with search
+- Trending companies
+- Fastest growing companies
+- Emerging startups
+- Browse by category
+- All companies with filters
 
-## Deploy on Vercel
+### 2. Company Detail (`/companies/[slug]`)
+- Company overview with key metrics
+- Funding history timeline
+- Products showcase
+- Team/founders
+- News coverage
+- Similar companies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Investors Discovery (`/investors`)
+- Investor search and filters
+- Most active investors
+- Type-based filtering (VC, Angel, Corporate)
+- Sector-based filtering
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 4. Investor Profile (`/investors/[slug]`)
+- Investor overview and metrics
+- Stage and sector focus
+- Portfolio concentration
+- Portfolio companies
+- Recent investments
+
+### 5. AI Products (`/products`)
+- Product discovery
+- Category filtering (Chat, Code, Image, Video, Audio)
+- Popular products
+- Upvotes and launch dates
+
+## Deployment
+
+### Vercel
+
+1. Connect GitHub repository to Vercel
+2. Configure build settings:
+   - Build Command: `npm run build`
+   - Output Directory: `.next`
+3. Deploy automatically on push to main branch
+
+### Environment Variables
+
+No environment variables required for the frontend (currently using mock data). When connecting to the backend API, add:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+
+## What's Next
+
+- Connect to backend API endpoints
+- Implement real-time data fetching
+- Add user authentication
+- Build user dashboard
+- Add dark mode toggle
+- Implement keyboard shortcuts for search
